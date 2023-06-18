@@ -25,7 +25,7 @@ public class TesteContato {
             +"\n 3 = Pesquisar Contato"
             +"\n 4 = Alterar Contato "
             +"\n 5 = Deletar Contato"
-            +"\n 6 = Finalizar Sistema");   
+            +"\n 6 = Finalizar Sistema !");   
               
         switch(op){
                 
