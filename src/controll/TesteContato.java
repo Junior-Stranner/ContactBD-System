@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Tela.TelaContato;
 import dao.ContatoDao;
 import modelo.Contato;
 
@@ -38,7 +37,7 @@ public class TesteContato {
                  default:System.out.println("Opção inválida");
             }
 
-        }while(op!= 0);
+        }while(op!= 6);
 
     }
 
@@ -57,15 +56,23 @@ public class TesteContato {
             System.out.println("Confirma a esclusão"
             +"\n 1 - Sim "
             +"\n 2 - Não ");
+            int res = Integer.parseInt(in.nextLine());
+            switch(res){
 
+                case 1:contatoDao.deletarContatoBD(contato);
+                System.out.println("Exclusão realizada com Sucesso !");
 
+                case 2: System.out.println("Erro ao Excluir Contato !");
+            }
+
+        } else{
+            System.out.println("Contato Inexistente !");
         }
+         
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-       
 
     }
 
@@ -111,7 +118,7 @@ public class TesteContato {
         }
     }
 
-    private static Contato pesquisarContato(Contato contato) {
+    private static void pesquisarContato() {
 
         System.out.println("Digite o nome completo do Usuaário");
         String nomePesquisar = in.nextLine();
@@ -122,7 +129,6 @@ public class TesteContato {
                 mostrarContatos(contato);
              }
         } 
-        return contato;
     }
 
     private static void mostrarContatos(Contato contato) {
